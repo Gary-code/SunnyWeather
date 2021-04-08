@@ -1,0 +1,29 @@
+package com.workaholiclab.sunnyweather
+
+import android.annotation.SuppressLint
+import android.app.Application
+import android.content.Context
+
+/**
+ * @Description:
+ * ViewModel层无法获得Activity的引用了
+ *  用于获取全局Context
+ *  存储我们申请彩云天气的指令牌
+ * @author: Gary
+ * @date: Created on 2021/03/06 9:31
+ * @since: Kotlin 1.4
+ * @modified by:
+ */
+class SunnyWeatherApplication:Application() {
+
+    companion object{
+        const val TOKEN ="FL7iRIPh9B0WuRSo"//输入彩云天气申请到的指令牌
+        @SuppressLint("StaticFieldLeak")
+        lateinit var context: Context
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        context = applicationContext
+    }
+}
